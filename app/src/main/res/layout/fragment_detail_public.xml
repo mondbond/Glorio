@@ -1,0 +1,175 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="exp.glorio.view.fragments.DetailPublicFragment">
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:columnCount="2">
+
+        <TextView
+            android:text="Varlamov.ru"
+            android:layout_width="190dp"
+            android:layout_height="50dp"
+            android:layout_column="0"
+            android:layout_row="0"
+            android:textSize="18sp"
+            android:textColor="@color/colorText"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:id="@+id/detailPublicName" />
+
+        <TextView
+            android:text="Varlamov.ru"
+            android:layout_width="190dp"
+            android:layout_height="80dp"
+            android:layout_column="0"
+            android:layout_row="0"
+            android:textSize="12sp"
+            android:textColor="@color/colorText"
+            android:layout_gravity="center|top"
+            android:layout_marginTop="80dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:id="@+id/detailPublicStatus"
+            />
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_column="1"
+            android:layout_row="0"
+            android:layout_gravity="right"
+            app:srcCompat="@drawable/folder_icon"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:id="@+id/detailPublicImage" />
+
+        <!--row 1-->
+
+        <TextView
+            android:text="@string/indicator_posts"
+            android:layout_width="200dp"
+            android:layout_height="30dp"
+            android:textSize="15sp"
+            android:textColor="@color/colorText"
+            android:layout_column="0"
+            android:layout_row="1"
+            android:layout_gravity="right"
+            android:paddingRight="10dp"
+            android:gravity="right"
+            android:id="@+id/detailIndicatorPosts" />
+
+        <TextView
+            android:text="@string/indicator_evarage_like"
+            android:layout_width="200dp"
+            android:layout_height="30dp"
+            android:textSize="15sp"
+            android:textColor="@color/colorText"
+            android:layout_column="0"
+            android:layout_row="2"
+            android:layout_gravity="right"
+            android:paddingRight="10dp"
+            android:gravity="right"
+            android:id="@+id/detailIndicatoreverageLikes" />
+
+        <TextView
+            android:text="@string/indicator_likes_on_sub"
+            android:layout_width="200dp"
+            android:layout_height="30dp"
+            android:textSize="15sp"
+            android:textColor="@color/colorText"
+            android:layout_column="0"
+            android:layout_row="3"
+            android:layout_gravity="right"
+            android:paddingRight="10dp"
+            android:gravity="right"
+            android:id="@+id/detailIndicatorLikeonSub" />
+
+        <TextView
+            android:text="@string/indicator_average_age"
+            android:layout_width="200dp"
+            android:layout_height="30dp"
+            android:textSize="15sp"
+            android:textColor="@color/colorText"
+            android:layout_column="0"
+            android:layout_row="4"
+            android:layout_gravity="right"
+            android:paddingRight="10dp"
+            android:gravity="right"
+            android:id="@+id/detailIndicatorAverageAge" />
+
+        <TextView
+            android:text="@string/indicator_sex"
+            android:layout_width="200dp"
+            android:layout_height="30dp"
+            android:textSize="15sp"
+            android:textColor="@color/colorText"
+            android:layout_column="0"
+            android:layout_row="5"
+            android:layout_gravity="right"
+            android:paddingRight="10dp"
+            android:gravity="right"
+            android:id="@+id/detailIndicatorSex" />
+
+        <TextView
+            android:text="3454534"
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:textSize="15sp"
+            android:textColor="@color/colorText"
+            android:layout_column="1"
+            android:layout_row="1"
+            android:layout_gravity="left"
+            android:gravity="left"
+            android:id="@+id/postResult1" />
+
+        <TextView
+            android:text="23"
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:textSize="15sp"
+            android:textColor="@color/colorText"
+            android:layout_column="1"
+            android:layout_row="2"
+            android:layout_gravity="left"
+            android:gravity="left"
+            android:id="@+id/averageLikesResult" />
+
+        <TextView
+            android:text="234"
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:textSize="15sp"
+            android:textColor="@color/colorText"
+            android:layout_column="1"
+            android:layout_row="3"
+            android:layout_gravity="left"
+            android:gravity="left"
+            android:id="@+id/subPerLikesResult" />
+
+        <TextView
+            android:text="3454534"
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:textSize="15sp"
+            android:textColor="@color/colorText"
+            android:layout_column="1"
+            android:layout_row="4"
+            android:layout_gravity="left"
+            android:gravity="left"
+            android:id="@+id/averageAgeResult" />
+
+        <exp.glorio.view.SexStatistic
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:background="#ccc"
+            app:exampleDimension="24sp"
+            android:id="@+id/manPercent"
+            />
+
+    </GridLayout>
+</FrameLayout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#1D1D1D</color>
+    <color name="colorPrimaryDark">#E4E2E2</color>
+    <color name="colorAccent">#F53030</color>
+    <color name="colorText">#2D2D2E</color>
+    <color name="colorLink">#45006B</color>
+    <color name="backgroundColor">#FC8888</color>
+    <color name="backgroundWhite">#fff</color>
+    <color name="linkBackground">#FFF0F0</color>
+    <color name="postBreakLine">#ECECEC</color>
+</resources>

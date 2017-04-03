@@ -1,0 +1,26 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="exp.glorio.view.activity.CategoryActivity">
+
+    <item
+        android:id="@+id/actionTrash"
+        android:title="delete"
+        android:icon="@drawable/trash_icon"
+        app:showAsAction="always"
+        android:visible="true"/>
+
+    <item
+        android:id="@+id/actionDelete"
+        android:title="delete"
+        android:icon="@drawable/delete_icon"
+        app:showAsAction="always"
+        android:visible="false"/>
+
+    <item
+        android:id="@+id/actionBack"
+        android:title="delete"
+        android:icon="@drawable/back_icon"
+        app:showAsAction="always"
+        android:visible="false"/>
+</menu>

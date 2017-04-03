@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="400dp">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <EditText
+            android:id="@+id/publicDialogWrite"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_gravity="center|left"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            />
+
+        <Button
+            android:id="@+id/publicSearchBtn"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            android:background="@drawable/button_selector"
+            android:layout_marginRight="20dp"
+            android:layout_gravity="right|center"
+            android:text="Find" />
+    </FrameLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/addPublicRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="260dp">
+
+    </android.support.v7.widget.RecyclerView>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <Button
+            android:id="@+id/publicDialogBtnBack"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            android:background="@drawable/button_selector"
+            android:layout_gravity="center"
+            android:layout_marginRight="70dp"
+            android:text="@string/cancel">
+        </Button>
+
+        <Button
+            android:id="@+id/publicDialogBtnAdd"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            android:background="@drawable/button_selector"
+            android:layout_gravity="center"
+            android:layout_marginLeft="70dp"
+            android:text="@string/add">
+        </Button>
+    </FrameLayout>
+</LinearLayout>
