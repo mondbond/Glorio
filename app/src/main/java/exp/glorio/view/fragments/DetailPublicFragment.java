@@ -21,7 +21,7 @@ import exp.glorio.di.DetailPublicComponent;
 import exp.glorio.model.PublicStatistics;
 import exp.glorio.presentation.DetailPublicPresenter;
 import exp.glorio.util.VkUtil;
-import exp.glorio.view.SexStatistic;
+import exp.glorio.view.SexStatisticView;
 import exp.glorio.view.activity.DetailPublicActivity;
 
 
@@ -42,7 +42,7 @@ public class DetailPublicFragment extends BaseFragment implements DetailPublicVi
     private TextView averageLikesResult;
     private TextView subPerLikesResult;
     private TextView averageAgeResult;
-    private SexStatistic manPercent;
+    private SexStatisticView manPercent;
     private PublicStatistics publicStatistics;
 
 
@@ -70,7 +70,7 @@ public class DetailPublicFragment extends BaseFragment implements DetailPublicVi
         averageLikesResult = (TextView) v.findViewById(R.id.averageLikesResult);
         subPerLikesResult = (TextView) v.findViewById(R.id.subPerLikesResult);
         averageAgeResult = (TextView) v.findViewById(R.id.averageAgeResult);
-        manPercent = (SexStatistic) v.findViewById(R.id.manPercent);
+        manPercent = (SexStatisticView) v.findViewById(R.id.manPercent);
 
         Bundle arguments = getArguments();
         publicId = arguments.getInt(DetailPublicActivity.PUBLIC_NAME);

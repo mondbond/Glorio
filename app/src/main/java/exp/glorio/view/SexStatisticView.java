@@ -1,20 +1,17 @@
 package exp.glorio.view;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
-import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.view.View;
 
 import exp.glorio.R;
 
-public class SexStatistic extends View {
+public class SexStatisticView extends View {
 
     private final int DEFAULT_MAN_COLOR = Color.parseColor("#4f4dff");
     private final int DEFAULT_WOMAN_COLOR = Color.parseColor("#fe8c8c");
@@ -23,26 +20,24 @@ public class SexStatistic extends View {
     int contentWidth;
     int contentHeight;
 
-    private float mExampleDimension = 0; // TODO: use a default from R.dimen..
-
     private Integer manColor;
     private Integer womanColor;
 
-    private Paint paint;
+    private Paint paint = new Paint();
 
     private Integer manPart;
 
-    public SexStatistic(Context context) {
+    public SexStatisticView(Context context) {
         super(context);
         init(null, 0);
     }
 
-    public SexStatistic(Context context, AttributeSet attrs) {
+    public SexStatisticView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(attrs, 0);
     }
 
-    public SexStatistic(Context context, AttributeSet attrs, int defStyle) {
+    public SexStatisticView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         init(attrs, defStyle);
     }
@@ -50,21 +45,13 @@ public class SexStatistic extends View {
     private void init(AttributeSet attrs, int defStyle) {
         // Load attributes
         final TypedArray a = getContext().obtainStyledAttributes(
-                attrs, R.styleable.SexStatistic, defStyle, 0);
+                attrs, R.styleable.SexStatisticView, defStyle, 0);
 
         }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        paint = new Paint();
-
-        // TODO: consider storing these as member variables to reduce
-        // allocations per draw cycle.
-//        int paddingLeft = getPaddingLeft();
-//        int paddingTop = getPaddingTop();
-//        int paddingRight = getPaddingRight();
-//        int paddingBottom = getPaddingBottom();
 
         contentWidth = getWidth() - getPaddingLeft() - getPaddingRight();
         contentHeight = getHeight() - getPaddingTop() - getPaddingBottom();
@@ -105,25 +92,6 @@ public class SexStatistic extends View {
                 contentWidth, contentHeight);
 
         canvas.drawRect(womanRec, paint);
-    }
-
-    /**
-     * Gets the example dimension attribute value.
-     *
-     * @return The example dimension attribute value.
-     */
-    public float getExampleDimension() {
-        return mExampleDimension;
-    }
-
-    /**
-     * Sets the view's example dimension attribute value. In the example view, this dimension
-     * is the font size.
-     *
-     * @param exampleDimension The example dimension attribute value to use.
-     */
-    public void setExampleDimension(float exampleDimension) {
-        mExampleDimension = exampleDimension;
     }
 
     public Integer getManPart() {
