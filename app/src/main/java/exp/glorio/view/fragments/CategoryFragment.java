@@ -40,10 +40,6 @@ public class CategoryFragment extends BaseFragment implements CategoryView {
 
     private CategoryAdapter adapter;
 
-    public CategoryFragment() {
-        // Required empty public constructor
-    }
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +50,6 @@ public class CategoryFragment extends BaseFragment implements CategoryView {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_category, container, false);
         setHasOptionsMenu(true);
 
@@ -88,7 +83,6 @@ public class CategoryFragment extends BaseFragment implements CategoryView {
                             data.getStringExtra(CategoryDialogFragment.CATEGORY_NAME_CODE));
                     break;
                 case REQUEST_DELETE:
-                    Log.d("1", "LOG");
                     deleteSelectedItems();
                     break;
             }
@@ -101,11 +95,8 @@ public class CategoryFragment extends BaseFragment implements CategoryView {
         if(adapter == null){
             adapter = new CategoryAdapter(categories,
                     CategoryAdapter.USUAL_MODE, getActivity());
-            Log.d("3", "adapter  = " + adapter.toString());
-
         }else {
             adapter.setCategoryList(categories);
-            Log.d("3", "adapter  = " + adapter.toString());
         }
         categoryRecycle.setAdapter(adapter);
     }
@@ -123,6 +114,5 @@ public class CategoryFragment extends BaseFragment implements CategoryView {
 
     public void deleteSelectedItems() {
         presenter.deleteSelectedItems(adapter.getCheckedItems());
-        Log.d("2", "LOG");
     }
 }

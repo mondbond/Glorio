@@ -32,8 +32,7 @@ public class VkApiNetwork {
     private JSONObject mPublicsMembers;
 
     public Observable<VKResponse> getUserPersonalInfo() {
-        return  Observable.create(new Observable.OnSubscribe<VKResponse>()
-        {
+        return  Observable.create(new Observable.OnSubscribe<VKResponse>() {
             @Override
             public void call(Subscriber<? super VKResponse> subscriber) {
                 VKRequest request = VKApi.users().get(VKParameters.from(VKApiConst.FIELDS,

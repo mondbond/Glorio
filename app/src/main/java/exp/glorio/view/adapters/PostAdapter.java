@@ -35,7 +35,6 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
     private Date date;
     private SimpleDateFormat format;
 
-
     public PostAdapter(ArrayList<Post> postArray, Context context) {
         this.postArray = postArray;
         this.context = context;
@@ -85,26 +84,19 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
             container.removeAllViews();
         }
 
-
         ArrayList<Photo> photoList = new ArrayList<>();
 
         if(postArray.get(position).getAttachmentses() != null) {
-            Log.d("1", "is attachments = " + postLikeIndex.getText() + " at size = " + String.valueOf(postArray.get(position).getAttachmentses().size()));
-
             for (int i = 0; i != postArray.get(position).getAttachmentses().size(); i++) {
                 if (postArray.get(position).getAttachmentses().get(i) == null) {
-                    Log.d("1", "errrr no zero");
                 }
                 if (postArray.get(position).getAttachmentses().get(i) != null && postArray.get(position)
                         .getAttachmentses().get(i).getType().equals(VkUtil.PHOTO_ATTACHMENT)) {
-                    Log.d("1", " at" + String.valueOf(i));
                     photoList.add((Photo) postArray.get(position).getAttachmentses().get(i));
                 }
             }
 
             if (!photoList.isEmpty() && photoList.size() > 1) {
-                Log.d("1", "POPAL");
-
                 TextView photoCountText = (TextView) view.findViewById(R.id.postImageCount);
                 photoCountText.setVisibility(View.VISIBLE);
                 photoCountText.setText(String.valueOf(1));
@@ -152,12 +144,6 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
                 if(attachment != null && attachment.getType() != null) {
                     switch (attachment.getType()) {
                         case VkUtil.PHOTO_ATTACHMENT:
-//                            Photo photo = (Photo) attachment;
-//                            ImageView image = new ImageView(context);
-//                            image.setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-//                                    ViewGroup.LayoutParams.MATCH_PARENT));
-//                            Picasso.with(context).load(photo.getPhoto604()).into(image);
-//                            container.addView(image);
                             break;
 
                         case VkUtil.LINK_ATTACHMENT:
@@ -186,7 +172,6 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
                 }
             }
         }
-        Log.d("1", "END");
     }
 
     @Override

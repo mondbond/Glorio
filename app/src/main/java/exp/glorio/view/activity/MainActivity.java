@@ -41,7 +41,6 @@ import exp.glorio.model.data.DaoSession;
 import exp.glorio.presentation.MainActivityPresenter;
 import exp.glorio.view.fragments.MainFragment;
 
-
     public class MainActivity extends BaseActivity implements IHasComponent<MainComponent>, MainActivityView{
 
         public final String RETAIN_MAIN = "mainFragment";
@@ -153,23 +152,6 @@ import exp.glorio.view.fragments.MainFragment;
 
                     DaoSession daoSession = daoMaster.newSession();
                     CategoryDao categoryDao = daoSession.getCategoryDao();
-
-//                    List<Category> res = categoryDao.queryBuilder()
-//                            .list();
-
-//                    userName.setText(res.get(0).getCategoryName());
-
-//                    Category category = new Category(1, "Best", true);
-//                    categoryDao.insert(category);
-//
-//                    Category category2 = new Category(11, "Humor", true);
-//                    categoryDao.insert(category2);
-//
-//                    Category category3 = new Category(2, "Auto", true);
-//                    categoryDao.insert(category3);
-//
-//                    Category category4 = new Category(3, "MDK", true);
-//                    categoryDao.insert(category4);
 
                 }
 

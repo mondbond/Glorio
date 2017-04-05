@@ -1,15 +1,9 @@
 package exp.glorio.presentation;
 
-import java.util.ArrayList;
-
 import javax.inject.Inject;
-
 import exp.glorio.common.BasePresenter;
 import exp.glorio.model.DbRepository;
-import exp.glorio.model.data.Category;
 import exp.glorio.view.fragments.MainView;
-import rx.Subscriber;
-
 
 public class MainPresenter implements BasePresenter<MainView>{
 

@@ -1,15 +1,11 @@
 package exp.glorio.view.activity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.FrameLayout;
 
 import exp.glorio.R;
 import exp.glorio.common.BaseActivity;
@@ -17,7 +13,6 @@ import exp.glorio.common.IHasComponent;
 import exp.glorio.di.AppComponent;
 import exp.glorio.di.DaggerDetailPublicComponent;
 import exp.glorio.di.DetailPublicComponent;
-import exp.glorio.view.fragments.CategoryFragment;
 import exp.glorio.view.fragments.DetailPublicFragment;
 
 public class DetailPublicActivity extends BaseActivity implements IHasComponent<DetailPublicComponent> {

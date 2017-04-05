@@ -45,11 +45,6 @@ public class DetailPublicFragment extends BaseFragment implements DetailPublicVi
     private SexStatisticView manPercent;
     private PublicStatistics publicStatistics;
 
-
-    public DetailPublicFragment() {
-        // Required empty public constructor
-    }
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,7 +55,6 @@ public class DetailPublicFragment extends BaseFragment implements DetailPublicVi
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View v =  inflater.inflate(R.layout.fragment_detail_public, container, false);
 
         detailPublicName = (TextView) v.findViewById(R.id.detailPublicName);
@@ -89,9 +83,6 @@ public class DetailPublicFragment extends BaseFragment implements DetailPublicVi
         super.onResume();
         presenter.init(this);
 
-//        getView().setVisibility(View.INVISIBLE);
-//        showProgressAnimation(getView(), getContext());
-
         if(publicStatistics == null) {
             BaseActivity activity = (BaseActivity) getActivity();
             activity.showProgressAnimation();
@@ -109,7 +100,6 @@ public class DetailPublicFragment extends BaseFragment implements DetailPublicVi
         }
         this.publicStatistics = publicStatistics;
 
-//        getView().setVisibility(View.VISIBLE);
         detailPublicName.setText(publicStatistics.getPubName());
         detailPublicDescription.setText(publicStatistics.getPubDescription());
         Picasso.with(getActivity()).load(publicStatistics.getPubPhoto()).into(detailPublicImage);

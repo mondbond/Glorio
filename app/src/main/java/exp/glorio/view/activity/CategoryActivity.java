@@ -56,8 +56,6 @@ public class CategoryActivity extends BaseActivity
 
                 mCategoryDialogFragment.setTargetFragment(mCategoryFragment, 0);
                 mCategoryDialogFragment.show(getSupportFragmentManager(), "new");
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
             }
         });
 
@@ -72,9 +70,7 @@ public class CategoryActivity extends BaseActivity
         mCategoryDialogFragment = new CategoryDialogFragment();
 
         if(savedInstanceState != null) {
-            Log.d("CATSAVE", "is + " + String.valueOf(savedInstanceState.getBoolean(DELETE_MODE)));
             deleteMode = savedInstanceState.getBoolean(DELETE_MODE);
-//            changeMode();
         }
     }
 
@@ -105,7 +101,6 @@ public class CategoryActivity extends BaseActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_category, menu);
-        Log.d("createMenu", "create");
         trash = menu.findItem(R.id.actionTrash);
         back = menu.findItem(R.id.actionBack);
         delete = menu.findItem(R.id.actionDelete);
@@ -117,7 +112,6 @@ public class CategoryActivity extends BaseActivity
     @Override
     protected void onResume() {
         super.onResume();
-//        changeMode();
     }
 
     @Override

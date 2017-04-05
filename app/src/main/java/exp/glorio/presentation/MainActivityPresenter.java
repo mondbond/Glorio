@@ -17,7 +17,6 @@ import rx.Subscriber;
 
 public class MainActivityPresenter implements BasePresenter<MainActivityView> {
 
-
     private MainActivityView mView;
     private VkApiNetwork mVkApi;
 

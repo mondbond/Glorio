@@ -1,6 +1,5 @@
 package exp.glorio.presentation;
 
-import android.util.Log;
 import com.vk.sdk.api.model.VKList;
 import org.json.JSONException;
 import java.util.ArrayList;

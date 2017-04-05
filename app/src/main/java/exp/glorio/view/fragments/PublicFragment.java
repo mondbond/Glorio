@@ -30,8 +30,6 @@ import exp.glorio.view.fragments.dialog.AddPublicDialogFragment;
  */
 public class PublicFragment extends BaseFragment implements PublicView {
 
-
-
     public final static int REQUEST_CREATE = 0;
     public final static int REQUEST_DELETE = 1;
 
@@ -44,10 +42,6 @@ public class PublicFragment extends BaseFragment implements PublicView {
     @Inject
     PublicPresenter presenter;
 
-    public PublicFragment() {
-        // Required empty public constructor
-    }
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,7 +51,6 @@ public class PublicFragment extends BaseFragment implements PublicView {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_public, container, false);
 
         publicRecycle = (RecyclerView) v.findViewById(R.id.publicRecycler);
@@ -80,11 +73,6 @@ public class PublicFragment extends BaseFragment implements PublicView {
         super.onResume();
         presenter.init(this);
         refresh();
-
-//        LocalDate birthdate = new LocalDate (1961, 1, 20);          //Birth date
-//        LocalDate now = new LocalDate();                    //Today's date
-//        Period period = new Period(birthdate, now, PeriodType.yearMonthDay());
-//        Log.d("JODA", Long.toString(period.getYears()));
     }
 
 

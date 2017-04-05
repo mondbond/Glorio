@@ -1,11 +1,7 @@
 package exp.glorio.presentation;
 
-import android.util.Log;
-
 import com.vk.sdk.api.model.VKList;
-
 import javax.inject.Inject;
-
 import exp.glorio.common.BasePresenter;
 import exp.glorio.network.VkApiNetwork;
 import exp.glorio.view.fragments.dialog.AddPublicDialogView;

@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
@@ -18,7 +17,6 @@ import exp.glorio.di.AppComponent;
 import exp.glorio.di.DaggerPublicComponent;
 import exp.glorio.di.PublicComponent;
 import exp.glorio.view.adapters.CategoryAdapter;
-import exp.glorio.view.fragments.MainFragment;
 import exp.glorio.view.fragments.PublicFragment;
 import exp.glorio.view.fragments.dialog.AddPublicDialogFragment;
 import exp.glorio.view.fragments.dialog.ConfirmDialogFragment;
@@ -51,8 +49,6 @@ public class PublicActivity extends BaseActivity implements IHasComponent<Public
         Toolbar toolbar = (Toolbar) findViewById(R.id.publicToolbar);
         setSupportActionBar(toolbar);
 
-//        mPublicFragment = new PublicFragment();
-
         fab = (FloatingActionButton) findViewById(R.id.publicFab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,11 +69,9 @@ public class PublicActivity extends BaseActivity implements IHasComponent<Public
             mPublicFragment.setArguments(categoryIntent.getExtras());
             fm.beginTransaction().replace(R.id.publicFragmentContainer, mPublicFragment, RETAIN_PUBLIC).commit();
         }
-//        categoryDialogFragment = new CategoryDialogFragment();
 
         if(savedInstanceState != null) {
             deleteMode = savedInstanceState.getBoolean(DELETE_MODE);
-//            changeMode();
         }
     }
 

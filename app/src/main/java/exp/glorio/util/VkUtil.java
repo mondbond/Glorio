@@ -1,7 +1,5 @@
 package exp.glorio.util;
 
-import android.util.Log;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -16,8 +14,6 @@ import exp.glorio.model.PostPOJO.Attachments;
 import exp.glorio.model.PostPOJO.Link;
 import exp.glorio.model.PostPOJO.Photo;
 import exp.glorio.model.PostPOJO.Post;
-import exp.glorio.model.PublicStatistics;
-
 
 public class VkUtil {
 
@@ -30,34 +26,20 @@ public class VkUtil {
 
     public static void appendPosts(JSONObject postJson, ArrayList<Post> postsList) {
         try {
-            Log.d("ALL JSON", postJson.toString());
 
             JSONObject response = postJson.getJSONObject("response");
             JSONArray posts = response.getJSONArray("items");
             int averageL = getTotalLikes(posts)/posts.length();
 
-//            Log.d("LIKE  !!!", " like = " + String.valueOf(averageL));
-
             JSONObject post;
             for(int i = 0; i != posts.length(); i++) {
-
-//                Log.d("TTTTTT", "45 = " + String.valueOf(posts.length()));
-
                 post = posts.getJSONObject(i);
-//                Log.d("TTTTTT", "46");
 
                 if(post.getInt("marked_as_ads") == 0
                         && post.getJSONObject("likes").getInt("count") >= averageL*GOOD_FILTER) {
-//                    Log.d("TTTTTT", "47");
-
                     postsList.add(parsePost(response, post, averageL));
-//                    Log.d("TTTTTT", "2");
                 }
-
-//                Log.d("TTTTTT", "1");
             }
-//            Log.d("TTTTTT", "3");
-
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -65,7 +47,6 @@ public class VkUtil {
     }
 
     private static Post parsePost(JSONObject response, JSONObject jsonPost, float avarageLikes) throws JSONException {
-//        Log.d("TTTTTT", "11");
 
         Post post = new Post();
         post.setId(jsonPost.getInt("id"));

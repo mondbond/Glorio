@@ -61,7 +61,6 @@ public class AddPublicAdapter extends RecyclerView.Adapter<AddPublicAdapter.Dial
             public void onClick(View view) {
                 selectedPosition = position;
                 notifyDataSetChanged();
-//                view.setBackgroundColor();
             }
         });
 

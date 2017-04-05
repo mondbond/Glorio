@@ -48,8 +48,6 @@ public class MainFragment extends BaseFragment implements MainView {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-
 
         View v = inflater.inflate(R.layout.fragment_main, container, false);
         categoryListRecycler = (RecyclerView) v.findViewById(R.id.categoryListRecycler);

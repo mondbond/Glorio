@@ -45,21 +45,9 @@ public abstract class BaseListAdapter extends RecyclerView.Adapter {
     public abstract int getItemCount();
 
     protected boolean isInDeleteList(long id) {
-//        if(!deleteList.isEmpty()) {
-//            for (Long deleteItem : deleteList) {
-//                if (deleteItem == id) {
-//                    return true;
-//                }
-//            }
-//        }
-//
-//        return false;
-
         if(!deleteList.isEmpty() && deleteList.contains(id)){
-            Log.d("contain", "true");
             return true;
         }else {
-            Log.d("contain", "false");
             return false;
         }
     }

@@ -38,8 +38,6 @@ public class PostFragment extends BaseFragment implements PostView {
     private long categoryId;
     private ArrayList<Post> postsList;
 
-    PostAdapter adapter;
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +48,6 @@ public class PostFragment extends BaseFragment implements PostView {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_post, container, false);
 
         recyclerView = (RecyclerView) v.findViewById(R.id.postFragmentRecycler);

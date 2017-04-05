@@ -48,12 +48,6 @@ public class App extends Application {
         db.execSQL("PRAGMA foreign_keys = ON;");
         DaoMaster daoMaster = new DaoMaster(db);
         DaoSession daoSession = daoMaster.newSession();
-
-// do this in your activities/fragments to get hold of a DAO
-//        CategoryDao categoryDao = daoSession.getCategoryDao();
-//        PublicDao publicDao = daoSession.getPublicDao();
-
-
     }
 
     public static AppComponent getAppComponent()

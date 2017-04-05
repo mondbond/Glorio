@@ -1,11 +1,8 @@
 package exp.glorio.view.activity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -16,7 +13,6 @@ import exp.glorio.common.IHasComponent;
 import exp.glorio.di.AppComponent;
 import exp.glorio.di.DaggerPostComponent;
 import exp.glorio.di.PostComponent;
-import exp.glorio.view.fragments.MainFragment;
 import exp.glorio.view.fragments.PostFragment;
 
 public class PostActivity extends BaseActivity implements IHasComponent<PostComponent> {

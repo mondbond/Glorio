@@ -1,15 +1,8 @@
 package exp.glorio.presentation;
 
-
-import android.util.Log;
-
-import java.util.ArrayList;
-
 import javax.inject.Inject;
-
 import exp.glorio.common.BasePresenter;
 import exp.glorio.model.DbRepository;
-import exp.glorio.model.PostPOJO.Post;
 import exp.glorio.network.VkApiNetwork;
 import exp.glorio.util.VkUtil;
 import exp.glorio.view.fragments.PostView;

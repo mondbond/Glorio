@@ -49,9 +49,6 @@ public class PublicAdapter  extends BaseListAdapter {
         TextView publicName = (TextView) view.findViewById(R.id.publicName);
         final ImageView checkBox = (ImageView) view.findViewById(R.id.publicCheckBox);
 
-
-
-
         try {
 
             if (isInDeleteList(vkList.get(position).fields.getInt("id"))) {
@@ -79,14 +76,12 @@ public class PublicAdapter  extends BaseListAdapter {
                         } else {
                             checkBox.setImageResource(R.drawable.checkbox_true_icon);
                             deleteList.add(Long.valueOf(vkList.get(position).fields.getInt("id")));
-                            Log.d("Dlist", deleteList.toString());
                         }
                     } catch (JSONException e) {
                     }
                 }
             });
         } else {
-//            ImageView checkBox = (ImageView) view.findViewById(R.id.publicCheckBox);
             checkBox.setVisibility(View.INVISIBLE);
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
