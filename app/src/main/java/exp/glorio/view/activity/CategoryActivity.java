@@ -18,7 +18,6 @@ import exp.glorio.di.CategoryComponent;
 import exp.glorio.di.DaggerCategoryComponent;
 import exp.glorio.view.adapters.CategoryAdapter;
 import exp.glorio.view.fragments.CategoryFragment;
-import exp.glorio.view.fragments.MainFragment;
 import exp.glorio.view.fragments.dialog.CategoryDialogFragment;
 import exp.glorio.view.fragments.dialog.ConfirmDialogFragment;
 

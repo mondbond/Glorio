@@ -113,6 +113,17 @@
                 android:textColor="@color/colorText"
                 android:textSize="16sp" />
 
+            <ImageView
+                android:id="@+id/postLike"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignTop="@+id/postDate"
+                android:layout_toLeftOf="@+id/postDate"
+                android:layout_toStartOf="@+id/postDate"
+                android:layout_marginRight="20dp"
+                android:layout_marginEnd="20dp"
+                android:src="@drawable/like_unpressed"/>
+
             <TextView
                 android:id="@+id/postDate"
                 android:layout_width="150dp"

@@ -65,13 +65,11 @@ import exp.glorio.view.fragments.MainFragment;
             userStatus = (TextView) findViewById(R.id.userStatus);
             userAvatar = (ImageView) findViewById(R.id.userAvatar);
 
-//            VKSdk.login(this);
+            VKSdk.login(this, "friends,video,groups,wall");
     //        getRequest();
-
 
             FragmentManager fm = getSupportFragmentManager();
             mainFragment = (MainFragment) fm.findFragmentByTag(RETAIN_MAIN);
-
 
             if (mainFragment == null) {
                 mainFragment = new MainFragment();

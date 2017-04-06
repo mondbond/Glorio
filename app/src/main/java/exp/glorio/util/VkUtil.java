@@ -56,6 +56,11 @@ public class VkUtil {
 
         post.setLikes(jsonPost.getJSONObject("likes").getInt("count"));
         post.setReposts(jsonPost.getJSONObject("reposts").getInt("count"));
+        if(String.valueOf(jsonPost.getJSONObject("likes").getInt("user_likes")).equals("0")){
+            post.setUserLiked(false);
+        }else {
+            post.setUserLiked(true);
+        }
 
         post.setIndex(getFormatted(post.getLikes()/avarageLikes));
 

@@ -115,7 +115,6 @@ public class PublicFragment extends BaseFragment implements PublicView {
         if(resultCode == Activity.RESULT_OK) {
             switch (requestCode) {
                 case REQUEST_CREATE:
-                    Log.d("2", "///");
 
                     Bundle bundle =  data.getExtras();
                     VKList vkList = (VKList) bundle.getParcelable(AddPublicDialogFragment.PUBlIC_LIST);

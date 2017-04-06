@@ -41,7 +41,6 @@ public class PostFragment extends BaseFragment implements PostView {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d("POSTFragment", "on CREAte");
         setRetainInstance(true);
     }
 
@@ -91,7 +90,7 @@ public class PostFragment extends BaseFragment implements PostView {
 
         this.postsList = postsList;
 
-        PostAdapter adapter = new PostAdapter(postsList, getActivity());
+        PostAdapter adapter = new PostAdapter(postsList, getActivity(), presenter);
         recyclerView.setAdapter(adapter);
     }
 }

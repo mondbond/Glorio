@@ -1,5 +1,8 @@
 package exp.glorio.network;
 
+import android.media.browse.MediaBrowser;
+import android.util.Log;
+
 import com.vk.sdk.api.VKApi;
 import com.vk.sdk.api.VKApiConst;
 import com.vk.sdk.api.VKError;
@@ -30,6 +33,7 @@ public class VkApiNetwork {
     private VKResponse mPublicsInfo;
     private VKList mPublicInfo;
     private JSONObject mPublicsMembers;
+    private VKResponse mLikesCount;
 
     public Observable<VKResponse> getUserPersonalInfo() {
         return  Observable.create(new Observable.OnSubscribe<VKResponse>() {
@@ -209,6 +213,60 @@ public class VkApiNetwork {
                     });
                 }
                 subscriber.onNext(array);
+            }
+        }).subscribeOn(Schedulers.newThread()).observeOn(AndroidSchedulers.mainThread());
+    }
+
+    public Observable<Boolean> putLike(int groupId, int itemId) {
+        return Observable.create(new Observable.OnSubscribe<Boolean>() {
+            @Override
+            public void call(Subscriber<? super Boolean> subscriber) {
+                VKRequest request = new VKRequest("likes.add", VKParameters.from("type", "post",
+                        "owner_id", -groupId, "item_id", itemId));
+                request.executeSyncWithListener(new VKRequest.VKRequestListener() {
+
+                    @Override
+                    public void onError(VKError error) {
+                        super.onError(error);
+                    }
+
+                    @Override
+                    public void onComplete(VKResponse response) {
+                        super.onComplete(response);
+                        mLikesCount = response;
+                        JSONObject responseJson = response.json;
+                        if(responseJson.has("response")) {
+                            subscriber.onNext(true);
+                        }
+                    }
+                });
+            }
+        }).subscribeOn(Schedulers.newThread()).observeOn(AndroidSchedulers.mainThread());
+    }
+
+    public Observable<Boolean> deleteLike(int groupId, int itenId) {
+        return Observable.create(new Observable.OnSubscribe<Boolean>() {
+            @Override
+            public void call(Subscriber<? super Boolean> subscriber) {
+                VKRequest request = new VKRequest("likes.delete", VKParameters.from("type", "post",
+                        "owner_id", -groupId, "item_id", itenId));
+                request.executeSyncWithListener(new VKRequest.VKRequestListener() {
+
+                    @Override
+                    public void onError(VKError error) {
+                        super.onError(error);
+                    }
+
+                    @Override
+                    public void onComplete(VKResponse response) {
+                        super.onComplete(response);
+                        mLikesCount = response;
+                        JSONObject responseJson = response.json;
+                        if(responseJson.has("response")) {
+                            subscriber.onNext(true);
+                        }
+                    }
+                });
             }
         }).subscribeOn(Schedulers.newThread()).observeOn(AndroidSchedulers.mainThread());
     }

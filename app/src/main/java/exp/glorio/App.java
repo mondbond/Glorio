@@ -1,25 +1,15 @@
 package exp.glorio;
 
 import android.app.Application;
-import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
-
 import com.vk.sdk.VKAccessToken;
 import com.vk.sdk.VKAccessTokenTracker;
 import com.vk.sdk.VKSdk;
-
 import org.greenrobot.greendao.database.Database;
-import org.joda.time.LocalDate;
-import org.joda.time.Period;
-import org.joda.time.PeriodType;
-
 import exp.glorio.di.AppComponent;
 import exp.glorio.di.AppModule;
 import exp.glorio.di.DaggerAppComponent;
-import exp.glorio.model.data.CategoryDao;
 import exp.glorio.model.data.DaoMaster;
 import exp.glorio.model.data.DaoSession;
-import exp.glorio.model.data.PublicDao;
 
 public class App extends Application {
 

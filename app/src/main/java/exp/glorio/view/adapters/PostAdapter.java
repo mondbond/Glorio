@@ -3,9 +3,9 @@ package exp.glorio.view.adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.annotation.IntegerRes;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +18,7 @@ import com.squareup.picasso.Picasso;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Locale;
 
 import exp.glorio.R;
@@ -25,6 +26,7 @@ import exp.glorio.model.PostPOJO.Attachments;
 import exp.glorio.model.PostPOJO.Link;
 import exp.glorio.model.PostPOJO.Photo;
 import exp.glorio.model.PostPOJO.Post;
+import exp.glorio.presentation.PostPresenter;
 import exp.glorio.util.VkUtil;
 
 public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> {
@@ -34,11 +36,14 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
 
     private Date date;
     private SimpleDateFormat format;
+    private PostPresenter mPresenter;
+    private HashMap<Integer, Boolean> likeArray = new HashMap<>();
 
-    public PostAdapter(ArrayList<Post> postArray, Context context) {
+    public PostAdapter(ArrayList<Post> postArray, Context context, PostPresenter postPresenter) {
         this.postArray = postArray;
         this.context = context;
         format = new SimpleDateFormat("mm.HH dd.MM.yyyy", Locale.ROOT);
+        mPresenter = postPresenter;
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder {
@@ -60,8 +65,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position)
-    {
+    public void onBindViewHolder(MyViewHolder holder, int position) {
         View view = holder.itemView;
 
         ImageView groupLogo = (ImageView) view.findViewById(R.id.postGroupLogo);
@@ -72,11 +76,21 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
         TextView dateText = (TextView) view.findViewById(R.id.postDate);
 
         LinearLayout container = (LinearLayout) view.findViewById(R.id.postAttachmentsContainer);
+        ImageView like = (ImageView) view.findViewById(R.id.postLike);
+
+        setLikeStatus(postArray.get(position), like);
 
         Picasso.with(context).load(postArray.get(position).getGroupLogo100Url()).into(groupLogo);
         groupName.setText(postArray.get(position).getGroupName());
         postText.setText(postArray.get(position).getText());
         postLikeIndex.setText(postArray.get(position).getIndex());
+        like.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mPresenter.putOrDeleteLike(postArray.get(position), postArray.get(position)
+                        .getGroupId(), like, PostAdapter.this);
+            }
+        });
         date = new Date(postArray.get(position).getDate()*1000);
         dateText.setText(format.format(date));
 
@@ -133,10 +147,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
                 Picasso.with(context).load(photo.getPhoto604()).into(image);
                 container.addView(image);
             }
-        }else {
-            Log.d("1", " no attachments");
         }
-
 
         if (postArray.get(position).getAttachmentses() != null) {
             for (int i = 0; i != postArray.get(position).getAttachmentses().size(); i++) {
@@ -172,6 +183,25 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
                 }
             }
         }
+    }
+
+    public void setLikeStatus(Post post, ImageView like) {
+        if(!getLikeArray().containsKey(post.getId())) {
+            if(post.getUserLiked()){
+                like.setImageDrawable(context.getResources().getDrawable(R.drawable.like_pressed));
+            }else {
+                like.setImageDrawable(context.getResources().getDrawable(R.drawable.like_unpressed));
+            }
+        }else if(getLikeArray().get(post.getId())) {
+            like.setImageDrawable(context.getResources().getDrawable(R.drawable.like_pressed));
+        } else if(!getLikeArray().get(post.getId())){
+            like.setImageDrawable(context.getResources().getDrawable(R.drawable.like_unpressed));
+        }
+
+    }
+
+    public HashMap<Integer, Boolean> getLikeArray() {
+        return likeArray;
     }
 
     @Override

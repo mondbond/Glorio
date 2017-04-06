@@ -15,6 +15,8 @@ public class Post {
     private int likes;
     private int reposts;
 
+    private boolean isUserLiked;
+
     private int groupId;
     private String groupName;
     private int isMember;
@@ -125,5 +127,13 @@ public class Post {
 
     public void setDate(long date) {
         this.date = date;
+    }
+
+    public boolean getUserLiked() {
+        return isUserLiked;
+    }
+
+    public void setUserLiked(boolean userLiked) {
+        this.isUserLiked = userLiked;
     }
 }
