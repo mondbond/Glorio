@@ -5,12 +5,12 @@ Glorio is the application what works with Vk's API. With it you can:
 - subscribers per like (what is the most important), ratio between men and women in publics;
 - save your favorite publics in group;
 - watch the best public's posts grouped in your groups;
-
+- possibility to put your likes
 
 Glorio development has been developing still. The next features are:
 
 - new algoritm of best posts selection;
-- possibility to put your likes and make reposts;
+- possibility to make reposts;
 - listen audios and watch videos;
 - possibility to configure your own filter of post's selection.
 
