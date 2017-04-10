@@ -58,7 +58,6 @@ public class AddPublicDialogFragment extends DialogFragment implements AddPublic
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         getDialog().setTitle("Add new public !");
         View v = inflater.inflate(R.layout.add_public_dialog_fragment, null);
-//        return super.onCreateView(inflater, container, savedInstanceState);
 
         getComponent().inject(this);
         recyclerView = (RecyclerView) v.findViewById(R.id.addPublicRecycler);

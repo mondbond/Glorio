@@ -57,7 +57,7 @@ public class PostPresenter implements BasePresenter<PostView> {
             mVkApiNetwork.deleteLike(groupId, post.getId()).subscribe(result -> {
                 if (result) {
                     if(postAdapter.getLikeArray().containsKey(post.getId())) {
-                        postAdapter.getLikeArray().replace(post.getId(), false);
+                        postAdapter.getLikeArray().remove(post.getId());
                     }else {
                         postAdapter.getLikeArray().put(post.getId(), false);
                     }
