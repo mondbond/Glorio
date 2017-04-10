@@ -98,9 +98,29 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
             container.removeAllViews();
         }
 
-        ArrayList<Photo> photoList = new ArrayList<>();
+        drawPhotos(position, view, container);
+        drawAttachments(position, container);
+    }
 
+    public void setLikeStatus(Post post, ImageView like) {
+        if(!getLikeArray().containsKey(post.getId())) {
+            if(post.getUserLiked()){
+                like.setImageDrawable(context.getResources().getDrawable(R.drawable.like_pressed));
+            }else {
+                like.setImageDrawable(context.getResources().getDrawable(R.drawable.like_unpressed));
+            }
+        }else if(getLikeArray().get(post.getId())) {
+            like.setImageDrawable(context.getResources().getDrawable(R.drawable.like_pressed));
+        } else if(!getLikeArray().get(post.getId())){
+            like.setImageDrawable(context.getResources().getDrawable(R.drawable.like_unpressed));
+        }
+    }
+
+    public void drawPhotos(int position, View view, LinearLayout container ){
         if(postArray.get(position).getAttachmentses() != null) {
+
+            ArrayList<Photo> photoList = new ArrayList<>();
+
             for (int i = 0; i != postArray.get(position).getAttachmentses().size(); i++) {
                 if (postArray.get(position).getAttachmentses().get(i) == null) {
                 }
@@ -148,7 +168,9 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
                 container.addView(image);
             }
         }
+    }
 
+    public void drawAttachments(int position, LinearLayout container){
         if (postArray.get(position).getAttachmentses() != null) {
             for (int i = 0; i != postArray.get(position).getAttachmentses().size(); i++) {
                 Attachments attachment = postArray.get(position).getAttachmentses().get(i);
@@ -185,21 +207,6 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
         }
     }
 
-    public void setLikeStatus(Post post, ImageView like) {
-        if(!getLikeArray().containsKey(post.getId())) {
-            if(post.getUserLiked()){
-                like.setImageDrawable(context.getResources().getDrawable(R.drawable.like_pressed));
-            }else {
-                like.setImageDrawable(context.getResources().getDrawable(R.drawable.like_unpressed));
-            }
-        }else if(getLikeArray().get(post.getId())) {
-            like.setImageDrawable(context.getResources().getDrawable(R.drawable.like_pressed));
-        } else if(!getLikeArray().get(post.getId())){
-            like.setImageDrawable(context.getResources().getDrawable(R.drawable.like_unpressed));
-        }
-
-    }
-
     public HashMap<Integer, Boolean> getLikeArray() {
         return likeArray;
     }
@@ -207,5 +214,10 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
     @Override
     public int getItemCount() {
         return postArray.size();
+    }
+
+
+    public void setLikeArray(HashMap<Integer, Boolean> likeArray) {
+        this.likeArray = likeArray;
     }
 }

@@ -6,24 +6,22 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.inject.Inject;
 
 import exp.glorio.R;
 import exp.glorio.common.BaseActivity;
 import exp.glorio.common.BaseFragment;
-import exp.glorio.di.CategoryComponent;
 import exp.glorio.di.PostComponent;
 import exp.glorio.model.PostPOJO.Post;
 import exp.glorio.presentation.PostPresenter;
 import exp.glorio.view.activity.PublicActivity;
-import exp.glorio.view.adapters.BaseListAdapter;
 import exp.glorio.view.adapters.PostAdapter;
 
 /**
@@ -31,12 +29,15 @@ import exp.glorio.view.adapters.PostAdapter;
  */
 public class PostFragment extends BaseFragment implements PostView {
 
+    private static final String LIKE_LIST = "mLikeList";
     @Inject
     PostPresenter presenter;
 
     private RecyclerView recyclerView;
     private long categoryId;
     private ArrayList<Post> postsList;
+    private PostAdapter mPostAdapter;
+    private HashMap<Integer, Boolean> mLikeList;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -56,6 +57,9 @@ public class PostFragment extends BaseFragment implements PostView {
         Bundle arguments = getArguments();
         categoryId = arguments.getLong(PublicActivity.CATEGORY_NAME);
 
+        if(savedInstanceState != null){
+            mLikeList = (HashMap<Integer, Boolean>) savedInstanceState.getSerializable(LIKE_LIST);
+        }
 
         return v;
     }
@@ -90,7 +94,17 @@ public class PostFragment extends BaseFragment implements PostView {
 
         this.postsList = postsList;
 
-        PostAdapter adapter = new PostAdapter(postsList, getActivity(), presenter);
-        recyclerView.setAdapter(adapter);
+        mPostAdapter = new PostAdapter(postsList, getActivity(), presenter);
+        if(mLikeList != null){
+            mPostAdapter.setLikeArray(mLikeList);
+        }
+        recyclerView.setAdapter(mPostAdapter);
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        mLikeList = mPostAdapter.getLikeArray();
+        outState.putSerializable(LIKE_LIST, mLikeList);
     }
 }
